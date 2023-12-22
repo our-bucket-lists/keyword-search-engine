@@ -30,8 +30,8 @@ def get_pixnet_info(url: str):
         'ig': ig[0] if len(ig)==1 else '',
     }
 
-def get_pixnet_media(keyword: str):
-    url = f'https://www.pixnet.net/mainpage/api/ppage/{keyword}/feeds?per_page=25&sort=related'
+def get_pixnet_media(keyword: str, page: int):
+    url = f'https://www.pixnet.net/mainpage/api/ppage/{keyword}/feeds?page={page}&per_page=25&filter=articles&sort=related'
     logging.debug(f'Invoke the Pixnet post API {url}')
     response = requests.get(url=url)
     
