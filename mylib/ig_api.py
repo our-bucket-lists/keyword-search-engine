@@ -8,7 +8,7 @@ def get_ig_info(url: str):
     logging.debug(f'Invoke the IG post API {url}')
     response = requests.get(url=url).text
 
-    username_pattern = r'"description".*?content=".*?likes,.*?comments - ([\w_\.]+).*?on (?:January|February|March|April|May|June|July|August|September|October|November|December)'
+    username_pattern = r'"description".*?content=".*?([\w_\.]+) on (?:January|February|March|April|May|June|July|August|September|October|November|December)'
     username = re.findall(username_pattern, response, flags=re.MULTILINE|re.DOTALL)
 
     if len(username) == 1: 
